@@ -12,12 +12,17 @@ const Header = () => {
         <nav className='flex flex-row justify-between w-full z-20 fixed top-0 left-0 h-12 border-b place-content-center items-center bg-gray-200'>
             {userLoggedIn && (
                 <div>
-                    <Link className='text-sm text-blue-600 underline mr-4' to={'/Youtube'}>Youtube</Link>
+                    <Link className='text-sm text-blue-600 underline mr-4 ml-4' to={'/Youtube'}>Youtube</Link>
+                    <Link className='text-sm text-blue-600 underline mr-4' to={'/ChannelIDInput'}>Update YT Channel ID</Link>
+
                 </div>
             )}
             <div>
                 {userLoggedIn ?
-                    <button onClick={() => { doSignOut().then(() => { navigate('/login') }) }} className='text-sm text-blue-600 underline ml-2'>Logout</button>
+                    <>
+                    <Link className='text-sm text-blue-600 underline mr-4' to={'/home'}>Dashboard</Link>
+                    <button onClick={() => { doSignOut().then(() => { navigate('/login') }) }} className='mr-4 text-sm text-blue-600 underline ml-2'>Logout</button>
+                    </>
                     :
                     <>
                         <Link className='text-sm text-blue-600 underline mr-4' to={'/login'}>Login</Link>

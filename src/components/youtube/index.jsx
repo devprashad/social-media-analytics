@@ -1,39 +1,40 @@
 import React, { useState, useEffect } from 'react';
-import { useAuth } from '../../contexts/authContext';
 import axios from 'axios';
 
-const Youtube = () => {
-  const [currentUser] = useAuth();
-  const [recentVideos, setRecentVideos] = useState([]);
-  const YOUTUBE_API_KEY = process.env.YOUTUBE_API_KEY; // Use a more secure environment variable name
 
-  useEffect(() => {
-    const fetchRecentVideos = async () => {
-      try {
-        const response = await axios.get(
-          `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${process.env.YOUTUBE_CHANNEL_ID}&maxResults=10&order=date&type=video&key=${YOUTUBE_API_KEY}`
-        );
-        setRecentVideos(response.data.items);
-      } catch (error) {
-        console.error('Error fetching recent videos:', error);
-      }
-    };
+import DashboardStatsGrid from '../copied/DashboardStatsGrid'
+import TransactionChart from '../copied/TransactionChart'
+import RecentOrders from '../copied/RecentOrders'
+import BuyerProfilePieChart from '../copied/BuyerProfilePieChart'
+import PopularProducts from '../copied/PopularProducts'
 
-    fetchRecentVideos();
-  }, [YOUTUBE_API_KEY]); // Re-fetch on API key change (for development)
 
-  return (
-    <div className='text-2xl font-bold pt-14'>
-      Hello {currentUser.displayName ? currentUser.displayName : currentUser.email}, you are now logged in.
+const YoutubeComponent = () => {
+   
 
-      {recentVideos.length > 0 && (
-        <ul>
-            <li>123</li>
-        </ul>
-      )}
-      {recentVideos.length === 0 && <p>No recent videos found.</p>}
+    return (
+        <div className="flex flex-col gap-4">
+        {/* <DashboardStatsGrid /> */}
+        <div className="flex flex-row gap-4 w-full">
+            <TransactionChart />
+            <BuyerProfilePieChart />
+        </div>
+        <div className="flex flex-row gap-4 w-full">
+            <RecentOrders />
+            <PopularProducts />
+        </div>
     </div>
-  );
+    );
 };
 
-export default Youtube;
+export default YoutubeComponent;
+
+{/* <div className='text-2xl font-bold pt-14'>
+{videos.map((video, index) => (
+    <div key={index}>
+        <h2>{video.title}</h2>
+        <img src={video.thumbnail} alt={video.title} />
+        <p>Video ID: {video.videoId}</p>
+    </div>
+))}
+</div> */}
