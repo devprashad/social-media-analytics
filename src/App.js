@@ -7,6 +7,8 @@ import YoutubeComponent from "./components/youtube";
 import ChannelIDInput from "./components/ChannelIDInput";
 import { AuthProvider } from "./contexts/authContext";
 import { useRoutes } from "react-router-dom";
+import RedditComponent from "./components/reddit";
+
 
 function App() {
   const routesArray = [
@@ -33,7 +35,11 @@ function App() {
     {
       path: "/ChannelIDInput",
       element: <ChannelIDInput/>
-    }
+    },
+    {
+      path: "/reddit",
+      element: <RedditComponent />,
+    },
   ];
   let routesElement = useRoutes(routesArray);
   return (

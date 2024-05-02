@@ -14,6 +14,8 @@ const YoutubeComponent = () => {
 
     return (
         <div className="flex flex-col gap-4">
+        <h2 className="text-2xl font-bold mt-16 text-gray-800  text-center">YOUTUBE ANALYTICS</h2>
+
         {/* <DashboardStatsGrid /> */}
         <div className="flex flex-row gap-4 w-full">
             <TransactionChart />

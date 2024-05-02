@@ -13,7 +13,8 @@ const Header = () => {
             {userLoggedIn && (
                 <div>
                     <Link className='text-sm text-blue-600 underline mr-4 ml-4' to={'/Youtube'}>Youtube</Link>
-                    <Link className='text-sm text-blue-600 underline mr-4' to={'/ChannelIDInput'}>Update YT Channel ID</Link>
+                    <Link className='text-sm text-blue-600 underline mr-4 ml-4' to={'/Reddit'}>Reddit</Link>
+                    <Link className='text-sm text-blue-600 underline mr-4' to={'/ChannelIDInput'}>Update Handles</Link>
 
                 </div>
             )}

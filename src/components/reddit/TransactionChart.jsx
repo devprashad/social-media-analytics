@@ -11,7 +11,7 @@ export default function TransactionChart() {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/api/video-details');
+            const response = await axios.get('http://localhost:5000/api/reddit/stats2');
             setVideoData(response.data);
         } catch (error) {
             console.error('Error fetching video data:', error);
@@ -19,8 +19,8 @@ export default function TransactionChart() {
     };
 
     return (
-        <div className="h-[22rem] bg-white p-4  rounded-sm border border-gray-200 flex flex-col flex-1">
-            <strong className="text-gray-700 font-medium ">Video Views and Likes</strong>
+        <div className="h-[22rem] bg-white p-4 rounded-sm border border-gray-200 flex flex-col flex-1">
+            <strong className="text-gray-700 font-medium ">Post Upvotes and Comments</strong>
             <div className="mt-3 w-full flex-1 text-xs">
                 <ResponsiveContainer width="100%" height="100%">
                     <BarChart
@@ -39,8 +39,8 @@ export default function TransactionChart() {
                         <YAxis />
                         <Tooltip />
                         <Legend />
-                        <Bar dataKey="views" name="Views" fill="#0ea5e9" />
-                        <Bar dataKey="likes" name="Likes" fill="#ea580c" />
+                        <Bar dataKey="upvoteCount" name="upvoteCount" fill="#0ea5e9" />
+                        <Bar dataKey="commentCount" name="commentCount" fill="#ea580c" />
                     </BarChart>
                 </ResponsiveContainer>
             </div>

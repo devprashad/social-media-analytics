@@ -23,7 +23,7 @@ export default function BuyerProfilePieChart() {
     useEffect(() => {
         async function fetchSentimentData() {
             try {
-                const response = await axios.get('http://localhost:5000/api/sentiment');
+                const response = await axios.get('http://localhost:5000/api/reddit/sentiment');
                 setSentimentData(response.data);
             } catch (error) {
                 console.error('Error fetching sentiment data:', error);
